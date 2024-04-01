@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export function ModeToggle() {
   let currentMode = 'light';
-  if (typeof window !== 'undefined') { localStorage.getItem('mode'); }
+  if (typeof window !== 'undefined') { currentMode = String(localStorage.getItem('mode')); }
   const [mode, setMode] = useState<boolean>(currentMode === 'light' ? false : true);
   const handleClickDarkMode = () => {
     setMode(!mode)

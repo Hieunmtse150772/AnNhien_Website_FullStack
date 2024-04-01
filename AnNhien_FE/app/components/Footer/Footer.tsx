@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // MIDDLE LINKS DATA
@@ -29,13 +30,13 @@ const footer = () => {
                     {/* COLUMN-1 */}
 
                     <div className='col-span-4'>
-                    <h1 className='logo-footer font-medium text-center dark:text-white'>Vườn chay an nhiên</h1>
+                        <h1 className='logo-footer font-medium text-center dark:text-white'>Vườn chay an nhiên</h1>
                         <h3 className='text-black text-lg font-medium leading-9 mb-4 lg:mb-20 dark:text-white'> Vượt qua ranh giới ẩm thực - Khám phá thế giới thuần chay đầy bất ngờ.</h3>
                         <div className='flex gap-4 justify-center'>
-                            <Link href="/"><img src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/dribble.svg'} alt="facabook" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons black' /></Link>
+                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
+                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/dribble.svg'} alt="facabook" className='footer-icons' /></Link>
+                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
+                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons black' /></Link>
                         </div>
                     </div>
 
@@ -61,7 +62,7 @@ const footer = () => {
                             <input type="Email address" name="q" className="py-4 text-sm w-full text-black bg-gray-900 rounded-md pl-4 focus:outline-none bg-emailbg focus:text-white" placeholder="Your email address" autoComplete="off" />
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
                                 <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                                    <img src={'/assets/footer/inputIcon.svg'} alt="inputicon" />
+                                    <Image width={20} height={20} src={'/assets/footer/inputIcon.svg'} alt="intuition" />
                                 </button>
                             </div>
                         </div>

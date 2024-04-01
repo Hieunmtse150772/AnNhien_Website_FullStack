@@ -9,28 +9,29 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from "@mui/material"
+import Image from "next/image"
 
 export function CarouselDishVegetable() {
   const image = [
     {
       name: 'Đậu hủ chiên',
-      src: 'assets/dishvegetable/vegetable_1.jpeg'
+      src: '/assets/dishvegetable/vegetable_1.jpeg'
     },
     {
       name: 'Ớt chuông xào',
-      src: 'assets/dishvegetable/vegetable_2.jpeg'
+      src: '/assets/dishvegetable/vegetable_2.jpeg'
     },
     {
       name: 'Cải ngọt nấu canh',
-      src: 'assets/dishvegetable/vegetable_3.jpeg'
+      src: '/assets/dishvegetable/vegetable_3.jpeg'
     },
     {
       name: 'Dưa leo',
-      src: 'assets/dishvegetable/vegetable_4.jpeg'
+      src: '/assets/dishvegetable/vegetable_4.jpeg'
     },
     {
       name: 'Canh khoai môn',
-      src: 'assets/dishvegetable/vegetable_1.jpeg'
+      src: '/assets/dishvegetable/vegetable_1.jpeg'
     }
   ]
   return (
@@ -46,7 +47,8 @@ export function CarouselDishVegetable() {
             <div className="p-1">
               <Card className="border-orange shadow-sm hover:shadow-lightgrey">
                 <CardContent className="flex aspect-square items-center justify-center p-1 flex-wrap  mx-4 mt-4">
-                  <img src={image.src} className="max-w-full max-h-48 rounded-xl"></img>
+                  <Image width={500}
+      height={500} src={image.src} className="max-w-full max-h-48 rounded-xl" alt={""}></Image>
                   <div className="flex-wrap items-center justify-center">
                     <div className="text-center">
                       <span className="text-yellow font-bold ">{image.name}</span>

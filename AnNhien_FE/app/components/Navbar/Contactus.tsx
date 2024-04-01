@@ -1,4 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
+import Image from 'next/image';
 import { Fragment, useState } from 'react'
 
 
@@ -81,7 +82,9 @@ const Contactusform = () => {
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
 
                                     <div className="py-8 lg:py-8 px-4 mx-auto max-w-screen-md">
-                                        <img
+                                        <Image
+                                        width={500}
+                                        height={500}
                                             className="mx-auto h-12 w-auto"
                                             src="/assets/logo/Logo.svg"
                                             alt="Your Company"

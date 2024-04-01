@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Banner from './components/Banner/Banner';
 import { CarouselDishVegetable } from './components/CarouselDishVegetable';
 
@@ -65,11 +66,8 @@ export default function Home() {
           <h1 className='text-green text-center text-4xl font-extrabold'>Bài viết mới nhất</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="md:p-8 p-2 bg-white">
-              <img
-                className="rounded-lg w-full"
-                src="https://images.unsplash.com/photo-1603349206295-dde20617cb6a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
-          "
-              />
+              <Image width={500}
+                height={500} className="rounded-lg w-full" src="/assets/dishvegetable/vegetable_1.jpeg" alt={''} />
 
               <p className="text-indigo-500 font-semibold text-base mt-2">Science</p>
               <h1
@@ -86,18 +84,20 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex items-center space-x-2 mt-20">
-           
+
                 <div>
                   <p className="text-gray-500 font-semibold text-sm">
-                  Xem thêm
+                    Xem thêm
                   </p>
                 </div>
               </div>
             </div>
             <div className="p-8 bg-white">
-              <img
+              <Image
+              width={500}
+              height={500}
                 className="rounded-lg w-full"
-                src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" />
+                src="/assets/dishvegetable/vegetable_2.jpeg" alt={''} />
               <p className="text-indigo-500 font-semibold text-base mt-2">
                 Startup stories
               </p>
@@ -117,7 +117,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mt-20">
                 <div>
                   <p className="text-gray-500 font-semibold text-sm">
-                  Xem thêm
+                    Xem thêm
 
                   </p>
                 </div>
@@ -125,7 +125,10 @@ export default function Home() {
             </div>
 
             <div className="p-8 bg-white">
-              <img className="h-80 rounded-lg w-full object-cover object-center" src="https://images.unsplash.com/photo-1580867532901-7e3707f178ce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=732&q=80" />
+              <Image
+              width={500}
+              height={500}
+              className="h-80 rounded-lg w-full object-cover object-center" src="/assets/dishvegetable/vegetable_3.jpeg" alt={''} />
               <p className="text-indigo-500 font-semibold text-base mt-2">Culture</p>
               <h1
                 className="font-semibold text-gray-900 leading-none text-xl mt-1 capitalize truncate"

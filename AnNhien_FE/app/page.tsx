@@ -89,7 +89,7 @@ export default function Home() {
            
                 <div>
                   <p className="text-gray-500 font-semibold text-sm">
-                  Xem thêm -->
+                  Xem thêm
                   </p>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mt-20">
                 <div>
                   <p className="text-gray-500 font-semibold text-sm">
-                  Xem thêm -->
+                  Xem thêm
 
                   </p>
                 </div>
@@ -143,7 +143,7 @@ export default function Home() {
               <div className="flex items-center space-x-2 mt-20">
                 <div>
                   <a className="text-gray-500 font-semibold text-sm">
-                    Xem thêm -->
+                    Xem thêm
                   </a>
                 </div>
               </div>

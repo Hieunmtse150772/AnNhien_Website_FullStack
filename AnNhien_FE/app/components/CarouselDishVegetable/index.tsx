@@ -47,8 +47,7 @@ export function CarouselDishVegetable() {
             <div className="p-1">
               <Card className="border-orange shadow-sm hover:shadow-lightgrey">
                 <CardContent className="flex aspect-square items-center justify-center p-1 flex-wrap  mx-4 mt-4">
-                  <Image width={500}
-      height={500} src={image.src} className="max-w-full max-h-48 rounded-xl" alt={""}></Image>
+                  <Image width={500} height={500} src={image.src} className="max-w-full max-h-48 rounded-xl" alt={""}></Image>
                   <div className="flex-wrap items-center justify-center">
                     <div className="text-center">
                       <span className="text-yellow font-bold ">{image.name}</span>

@@ -56,8 +56,7 @@ export default function Home() {
         <div>
           <h1 className='text-green text-center text-4xl font-extrabold'>Các món chay ngon trong tuần</h1>
           <div className='mt-10'>
-            <CarouselDishVegetable>
-            </CarouselDishVegetable>
+            <CarouselDishVegetable/>
           </div>
         </div>
       </div>

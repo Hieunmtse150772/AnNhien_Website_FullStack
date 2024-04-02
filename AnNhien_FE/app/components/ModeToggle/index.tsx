@@ -24,7 +24,7 @@ export function ModeToggle() {
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.remove('dark-mode-navbar')
-    }
+    } 
   }, [mode])
   const handleClickDarkMode = (check: boolean) => {
     localStorage.setItem('mode', !check ? 'dark' : 'light');
@@ -35,4 +35,6 @@ export function ModeToggle() {
       {mode ? <Brightness7Icon /> : <Brightness4Icon />}
     </IconButton>
   )
+
+
 }

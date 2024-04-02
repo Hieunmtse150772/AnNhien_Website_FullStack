@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Banner from './components/Banner/Banner';
 import { CarouselDishVegetable } from './components/CarouselDishVegetable';
+import { ListLatestNew } from './components/ListLatestNews';
 
 export default function Home() {
   return (
@@ -63,94 +64,7 @@ export default function Home() {
       <div className='flex justify-center mt-10 mx-20'>
         <div>
           <h1 className='text-green text-center text-4xl font-extrabold'>Bài viết mới nhất</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="md:p-8 p-2 bg-white">
-              <Image width={500}
-                height={500} className="rounded-lg w-full" src="/assets/dishvegetable/vegetable_1.jpeg" alt={''} />
-
-              <p className="text-indigo-500 font-semibold text-base mt-2">Science</p>
-              <h1
-                className="font-semibold text-gray-900 leading-none text-xl mt-1 capitalize truncate"
-              >
-                the life of albert einstein
-              </h1>
-              <div className="max-w-full">
-                <p className="text-base font-medium tracking-wide text-gray-600 mt-1">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-                  vel soluta dolore id nesciunt eum nam ipsam, eveniet cupiditate sint
-                  veritatis harum odit. Iste dignissimos, ad provident nulla
-                  voluptatum ut.
-                </p>
-              </div>
-              <div className="flex items-center space-x-2 mt-20">
-
-                <div>
-                  <p className="text-gray-500 font-semibold text-sm">
-                    Xem thêm
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="p-8 bg-white">
-              <Image
-              width={500}
-              height={500}
-                className="rounded-lg w-full"
-                src="/assets/dishvegetable/vegetable_2.jpeg" alt={''} />
-              <p className="text-indigo-500 font-semibold text-base mt-2">
-                Startup stories
-              </p>
-              <h1
-                className="font-semibold text-gray-900 leading-none text-xl mt-1 capitalize truncate"
-              >
-                The rise of facebook
-              </h1>
-              <div className="max-w-full">
-                <p className="text-base font-medium tracking-wide text-gray-600 mt-1">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil,
-                  dignissimos repudiandae. Consequuntur minus ipsam repudiandae soluta
-                  qui, recusandae obcaecati molestias commodi magnam nisi illo illum
-                  quaerat aut maiores! Esse, aperiam!
-                </p>
-              </div>
-              <div className="flex items-center space-x-2 mt-20">
-                <div>
-                  <p className="text-gray-500 font-semibold text-sm">
-                    Xem thêm
-
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8 bg-white">
-              <Image
-              width={500}
-              height={500}
-              className="h-80 rounded-lg w-full object-cover object-center" src="/assets/dishvegetable/vegetable_3.jpeg" alt={''} />
-              <p className="text-indigo-500 font-semibold text-base mt-2">Culture</p>
-              <h1
-                className="font-semibold text-gray-900 leading-none text-xl mt-1 capitalize truncate"
-              >
-                the life of masaai people from tanzania
-              </h1>
-              <div className="max-w-full">
-                <p className="text-base font-medium tracking-wide text-gray-600 mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-                  officiis aspernatur, modi nobis et neque quod asperiores laboriosam
-                  ab. Magni fugit necessitatibus ducimus placeat assumenda perferendis
-                  laborum quae aperiam minus.
-                </p>
-              </div>
-              <div className="flex items-center space-x-2 mt-20">
-                <div>
-                  <a className="text-gray-500 font-semibold text-sm">
-                    Xem thêm
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+         <ListLatestNew></ListLatestNew>
         </div>
 
       </div>

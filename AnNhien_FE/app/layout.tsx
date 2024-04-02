@@ -22,11 +22,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
       </head>
       <body>
-            <div className='container'>
               <Navbar />
               {children}
               <Footer />
-            </div>
     </body>
     </html >
   )

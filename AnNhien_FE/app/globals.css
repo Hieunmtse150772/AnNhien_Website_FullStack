@@ -95,6 +95,23 @@ html:not([data-scroll="0"]) .navbar{
 .introduce{
   position: relative;
 }
+.image-banner-introduction{
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: inherit;
+    object-fit: cover; /* Giữ nguyên tỷ lệ khung hình */
+}
+.banner-introduction{
+  height: 400px; max-height: 400px;
+
+}
 @media (min-aspect-ratio: 16/9){
   .back-video{
     height: 100%;

@@ -1,14 +1,13 @@
+import Image from 'next/image'
 import React from 'react'
 
 function IntroductionPage() {
   return (
     <div>
-         <main className='banner-image'>
-            <video autoPlay loop muted playsInline className="back-video">
-                <source src="/assets/video/vegetarian-video.mp4" type="video/mp4" />
-                {/* Nếu trình duyệt không hỗ trợ video */}
-                Your browser does not support the video tag.
-            </video>
+         <main className='banner-introduction'>
+            <Image width={830} height={400} className="image-banner-introduction" src={'/assets/banner/introduction_banner3.jpg'} alt={''}>
+             
+            </Image>
             <div className="relative px-6 lg:px-8">
                 <div className="mx-auto max-w-5xl pt-16 sm:pt-40 sm:pb-24">
                     <div className="text-center">

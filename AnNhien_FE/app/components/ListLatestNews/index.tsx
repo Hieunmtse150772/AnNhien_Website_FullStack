@@ -22,7 +22,6 @@ export function ListLatestNew() {
         <div key={index} className="md:p-8 p-2 bg-white dark:bg-transparent hover:shadow-black shadow-lg rounded-sm">
           <Image width={500}
             height={500} className="rounded-lg w-full" src={item.src} alt={''} />
-
           <p className="text-indigo-500 font-semibold text-base mt-2">Science</p>
           <h1
             className="font-semibold text-gray-900 leading-none text-xl mt-1 capitalize truncate"

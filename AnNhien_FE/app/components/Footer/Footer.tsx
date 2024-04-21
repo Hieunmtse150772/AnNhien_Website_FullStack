@@ -23,54 +23,42 @@ const products: ProductType[] = [
 
 const footer = () => {
     return (
-        <div className="bg-transparent" id="first-section">
-            <div className="mx-auto max-w-2xl pt-64 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                <div className="mt-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
-
-                    {/* COLUMN-1 */}
-
-                    <div className='col-span-4'>
-                        <h1 className='logo-footer font-medium text-center dark:text-white'>Vườn chay an nhiên</h1>
-                        <h3 className='text-black text-lg font-medium leading-9 mb-4 lg:mb-20 dark:text-white'> Vượt qua ranh giới ẩm thực - Khám phá thế giới thuần chay đầy bất ngờ.</h3>
-                        <div className='flex gap-4 justify-center'>
-                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
-                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/dribble.svg'} alt="facabook" className='footer-icons' /></Link>
-                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
-                            <Link href="/"><Image width={100} height={100} src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons black' /></Link>
-                        </div>
-                    </div>
-
-                    {/* CLOUMN-2/3 */}
-                    {products.map((product) => (
-                        <div key={product.id} className="group relative col-span-2">
-                            <p className="text-black text-xl font-semibold mb-9 dark:text-white">{product.section}</p>
+        <div className="bg-transparent mt-10" id="first-section">
+            {/* <div className="mx-auto max-w-2xl pt-64 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8"> */}
+            <hr className="border-t-2 border-green-500" />
+            <div className="mt-5 grid grid-cols-1 lg:grid-cols-12">
+                <div className='col-span-5'>
+                    <div className="flex space-x-5 self-center justify-center">
+                        <Image width={150} height={150} src="/assets/logo/logo.svg" alt="intuition"></Image>
+                        <div className="self-center">
+                            <h1 className='logo-footer font-medium dark:text-white'>Vườn chay an nhiên</h1>
                             <ul>
-                                {product.link.map((link: string, index: number) => (
-                                    <li key={index} className='mb-5'>
-                                        <Link href="/" className="text-black text-sm font-normal mb-6 space-links dark:text-white">{link}</Link>
-                                    </li>
-                                ))}
+                                <li>ĐC: Tổ 4, Sông Xoài, TX. Phú Mỹ, BRVT</li>
+                                <li>ĐT: 037 959 4759</li>
                             </ul>
-                        </div>
-                    ))}
 
-                    {/* CLOUMN-4 */}
-
-                    <div className='col-span-4'>
-                        <h3 className='text-black text-xl font-semibold mb-6 dark:text-white'>Stay up to date</h3>
-                        <div className="relative text-black focus-within:text-black flex flex-row-reverse">
-                            <input type="Email address" name="q" className="py-4 text-sm w-full text-black bg-gray-900 rounded-md pl-4 focus:outline-none bg-emailbg focus:text-white" placeholder="Your email address" autoComplete="off" />
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                                    <Image width={20} height={20} src={'/assets/footer/inputIcon.svg'} alt="intuition" />
-                                </button>
-                            </div>
                         </div>
+
                     </div>
 
+
+                </div>
+                <div className="col-span-7 space-x-10 ">
+                    <div className="px-10">
+                    <p className='text-black text-lg font-light dark:text-white'> Hoan nghênh mọi hình thức góp chia sẻ rộng rãi thông tin trên trang này, nhưng vui lòng ghi rõ xuất xứ và không tùy tiện thêm bớt.
+                        Sách được đăng tải trên trang này là do chúng tôi giữ bản quyền hoặc được sự ủy nhiệm hợp pháp của người giữ bản quyền.</p>
+                    <div className='flex justify-center right-0 float-right'>
+                        <Link href="/"><Image width={50} height={50} src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
+                        <Link href="/"><Image width={50} height={50} src={'/assets/footer/dribble.svg'} alt="facabook" className='footer-icons' /></Link>
+                        <Link href="/"><Image width={50} height={50} src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
+                        <Link href="/"><Image width={50} height={50} src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons black' /></Link>
+                    </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
+        // </div>
     )
 }
 

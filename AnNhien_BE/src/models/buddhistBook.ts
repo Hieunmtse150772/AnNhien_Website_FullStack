@@ -1,17 +1,16 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 interface IBuddhistBook extends Document {
-  // bookId: string;
   bookType: string;
   bookName: string;
   author: string;
 }
 
 const BuddhistBookSchema = new Schema<IBuddhistBook>({
-  // bookId: {type: String, required: false},
-  bookType: String,
-  bookName: String,
-  author: String,
+  _id: Schema.Types.ObjectId,
+  bookType: { type: String, required: true },
+  bookName: { type: String, required: true },
+  author: { type: String, required: true },
 });
 
 const BuddhistBookModel = mongoose.model<IBuddhistBook>('BuddhistBook', BuddhistBookSchema);

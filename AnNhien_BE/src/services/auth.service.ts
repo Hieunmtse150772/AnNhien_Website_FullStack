@@ -83,8 +83,6 @@ export const signupService = async (req: Request, res: Response<ResponseT<null>>
     }
 
     let cloudinaryResult;
-    console.log('cloudinaryResult: ',cloudinaryResult)
-
     if (req.file?.filename) {
       // localFilePath: path of image which was just
       // uploaded to "public/uploads/users" folder
@@ -94,13 +92,11 @@ export const signupService = async (req: Request, res: Response<ResponseT<null>>
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'users',
       });
-      console.log('cloudinaryResult: ',cloudinaryResult)
       // Image has been successfully uploaded on
       // cloudinary So we dont need local image file anymore
       // Remove file from local uploads folder
       deleteFile(localFilePath);
     }
-
     const newUser = new User({
       email,
       password,
@@ -147,7 +143,6 @@ export const signupService = async (req: Request, res: Response<ResponseT<null>>
       issuer: environmentConfig.JWT_ISSUER,
       audience: String(user._id),
     };
-    console.log('refreshTokenJwtOptions: ', refreshTokenJwtOptions);
     // Generate and set verify email token
     const generatedAccessToken = await token.generateToken(payload, accessTokenSecretKey, accessTokenOptions);
     const generatedRefreshToken = await token.generateToken(payload, refreshTokenSecretKey, refreshTokenJwtOptions);

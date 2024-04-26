@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel"
 import { Button } from "@mui/material"
 import Image from "next/image"
+import Link from "next/link"
 
 export function CarouselDishVegetable() {
   const image = [
@@ -39,16 +40,28 @@ export function CarouselDishVegetable() {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-7xl"
+      className="max-w-8xl"
     >
       <CarouselContent>
         {image.map((image, index) => (
           <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
             <div className="p-1">
               <Card className="border-orange shadow-sm hover:shadow-lightgrey">
-                <CardContent className="flex aspect-square items-center justify-center p-1 flex-wrap  mx-4 mt-4">
-                  <Image width={500} height={500} src={image.src} className="max-w-full max-h-48 rounded-xl" alt={""}></Image>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                 
                   <div className="flex-wrap items-center justify-center">
+                  <Link
+                    className="relative block aspect-video"
+                    href="">
+                    <Image
+                      src={image.src}
+                      alt={"Thumbnail"}
+                      priority={true}
+                      className="object-cover transition-all max-w-full max-h-48 rounded-xl"
+                      fill
+                      sizes="(max-width: 768px) 30vw, 33vw"
+                    />
+                  </Link>
                     <div className="text-center">
                       <span className="text-yellow font-bold ">{image.name}</span>
                     </div>
@@ -63,8 +76,6 @@ export function CarouselDishVegetable() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   )
 }

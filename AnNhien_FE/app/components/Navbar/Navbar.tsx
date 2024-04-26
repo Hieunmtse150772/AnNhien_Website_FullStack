@@ -35,20 +35,17 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <Disclosure as="nav" className="navbar">
+        <Disclosure as="nav" className="navbar bg-transparent">
             <>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="relative flex h-20 items-center justify-between">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
-
                             {/* LOGO */}
 
                             <div className="flex flex-shrink-0 items-center">
                             <h1 className='logo font-medium text-black'>Vườn chay an nhiên</h1>
                             </div>
-
                             {/* LINKS */}
-
                             <div className="hidden sm:ml-14 md:block">
                                 <div className="text-menu flex space-x-4 text-white font-bold px-10 ">
                                     {navigation.map((item) => (

@@ -27,6 +27,11 @@ body {
   color: rgb(255, 255, 255);
     font-family: 'Great Vibes', cursive;
 }
+.navbar{
+  position: absolute;
+  z-index: 30;
+  width: 100%;
+}
 html:not([data-scroll="0"]) .navbar{
   position: fixed;
   top: 0;
@@ -78,6 +83,8 @@ html:not([data-scroll="0"]) .navbar{
 
 .banner{
   height: 766px; max-height: 766px;
+  position: relative;
+  z-index: 0;
 }
 .back-video {
   position: absolute;

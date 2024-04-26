@@ -23,7 +23,7 @@ const products: ProductType[] = [
 
 const footer = () => {
     return (
-        <div className="bg-transparent mt-10" id="first-section">
+        <div className="bg-transparent mt-10 mb-5" id="first-section">
             {/* <div className="mx-auto max-w-2xl pt-64 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8"> */}
             <hr className="border-t-2 border-green-500" />
             <div className="mt-5 grid grid-cols-1 lg:grid-cols-12">

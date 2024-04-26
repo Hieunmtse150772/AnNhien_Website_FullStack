@@ -17,7 +17,7 @@ export function ListLatestNew() {
     },
   ]
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
       {news.map((item, index) => (
         <div key={index} className="md:p-8 p-2 bg-white dark:bg-transparent hover:shadow-black shadow-lg rounded-sm">
           <Image width={500}

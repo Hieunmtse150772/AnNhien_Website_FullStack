@@ -152,7 +152,7 @@ export const signupService = async (req: Request, res: Response<ResponseT<null>>
     token.accessToken = generatedAccessToken;
     token = await token.save();
 
-    const verifyEmailLink = `${environmentConfig.WEBSITE_URL}/verify-email?id=${user._id}&token=${token.refreshToken}`;
+    const verifyEmailLink = `${environmentConfig.WEBSITE_URL}/verify-email/${user._id}/${token.refreshToken}`;
 
     // send mail for email verification
     await sendEmailVerificationEmail(email, name, verifyEmailLink);

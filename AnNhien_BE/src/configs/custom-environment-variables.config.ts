@@ -12,6 +12,7 @@ export const environmentConfig = {
   JWT_EXPIRE_TIME: process.env.JWT_EXPIRE_TIME,
   PORT: process.env.PORT || 8000,
   SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY,
+  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
   ADMIN_SEND_GRID_EMAIL: process.env.ADMIN_SEND_GRID_EMAIL,
   NODE_ENV: process.env.NODE_ENV || 'development',
   CLIENT_URL: process.env.CLIENT_URL,

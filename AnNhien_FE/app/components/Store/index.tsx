@@ -36,7 +36,7 @@ export default function Store({
     ]
     return (
         <>
-            <div className="m-10 grid gap-10  xs:grid-cols-4 md:grid-cols-3 lg:gap-10 xl:grid-cols-5">
+            <div className="m-10 grid gap-5 grid-cols-2 md:grid-cols-3 lg:gap-5 xl:grid-cols-5 lg:grid-cols-6">
                 {news.map((item, index) => (
                     <div key={index}
                         className="overflow-hidden bg-gray-100 transition-all hover:scale-105 group cursor-pointer gap-10 md:grid-cols-2 mt-10 rounded-xl shadow-md hover:shadow-black w-full h-full">

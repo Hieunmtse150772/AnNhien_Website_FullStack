@@ -137,7 +137,7 @@ const UserSchema: Schema<IUserDocument> = new Schema(
     },
     isVerified: {
       type: Boolean,
-      default: true,
+      default: false,
       required: false,
     },
     isDeleted: {

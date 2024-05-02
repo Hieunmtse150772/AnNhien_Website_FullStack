@@ -32,35 +32,35 @@ servers:
 paths:
   # Health Check
 
-  /:
-    get:
-      summary: Api health check endpoint
-      tags:
-        - HealthCheck
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                '$ref': '#/components/schemas/HealthCheckResponse'
+  # /:
+  #   get:
+  #     summary: Api Vuon Chay An Nhien endpoint
+  #     tags:
+  #       - Vegetarian
+  #     responses:
+  #       '200':
+  #         description: OK
+  #         content:
+  #           application/json:
+  #             schema:
+  #               '$ref': '#/components/schemas/AnNhienResponse'
 
   # Health Check
 
-  /healthChecker:
-    get:
-      summary: Api health check endpoint
-      tags:
-        - HealthCheck
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                '$ref': '#/components/schemas/HealthCheckResponse'
+  # /healthChecker:
+  #   get:
+  #     summary: Api health check endpoint
+  #     tags:
+  #       - HealthCheck
+  #     responses:
+  #       '200':
+  #         description: OK
+  #         content:
+  #           application/json:
+  #             schema:
+  #               '$ref': '#/components/schemas/HealthCheckResponse'
 
-  # Products
+  # # Products
 
   /products:
     get:

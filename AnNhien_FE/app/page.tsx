@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <div className='introduce m-10'>
+      <div className='introduce m-10 '>
         <div className='flex justify-center'>
-          <div className='max-w-4xl'>
+          <div className='max-w-5xl'>
             <h1 className='text-center text-5xl text-green font-extrabold'>Lời nói đầu</h1>
             <p className='font-extralight text-justify mt-10'>
               Một trong những nhân duyên lớn may mắn nhất trong cuộc đời là minh được sinh ra trong một gia đình có truyền thống Phật giáo.
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
       </div>
       <div className='flex justify-center'>
-        <div className='max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-6xl'>
+        <div className='max-w-md mx-auto rounded-xl overflow-hidden md:max-w-6xl'>
           <h1 className='text-green text-center text-4xl font-extrabold'>Các món chay ngon trong tuần</h1>
           <div className='mt-5 m-10'>
             <CarouselDishVegetable/>
@@ -67,22 +67,22 @@ export default function Home() {
         </div>
       </div>
       <div className='flex justify-center mt-10'>
-        <div className='max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-6xl'>
+        <div className='max-w-md mx-auto rounded-xl overflow-hidden md:max-w-6xl'>
           <h1 className='text-green text-center text-4xl font-extrabold'>Tủ sách An Nhiên</h1>
          <ListBooks></ListBooks>
         </div>
 
       </div>
       <div className='flex justify-center mt-10 mx-20'>
-        <div className='max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-6xl'>
+        <div className='max-w-md mx-auto rounded-xl overflow-hidden md:max-w-6xl'>
           <h1 className='text-green text-center text-4xl font-extrabold'>Bài viết mới nhất</h1>
          <PostList></PostList>
         </div>
 
       </div>
       <div className='flex justify-center mt-10 mx-20'>
-        <div>
-          <h1 className='text-green text-center text-4xl font-extrabold'>Cửa hàng chay</h1>
+        <div className='max-w-md mx-auto rounded-xl overflow-hidden md:max-w-6xl'>
+          <h1 className='text-green text-center text-4xl font-extrabold '>Cửa hàng chay</h1>
          <Store></Store>
         </div>
 

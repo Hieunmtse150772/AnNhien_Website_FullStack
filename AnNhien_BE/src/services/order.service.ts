@@ -83,7 +83,7 @@ export const postOrderService = async (
 ) => {
   try {
     const { shippingInfo, paymentInfo, textAmount, shippingAmount, totalAmount, orderStatus, orderItems } = req.body;
-
+    console.log('orrderr: ', req.body)
     const authUser = await User.findById(req.user?._id).select('-password -confirmPassword -cart -status');
 
     if (!authUser) {
@@ -251,7 +251,7 @@ export const getInvoicesService = async (req: AuthenticatedRequestBody<IUser>, r
 
     const invoiceName = `invoice-${orderId}.pdf`;
 
-    const invoicePath = resolve(process.cwd(), `${process.env.PWD}/public/invoices/${invoiceName}`);
+    const invoicePath = resolve(process.cwd(), `${process.env.PWD || process.cwd()}/public/invoices/${invoiceName}`);
 
     const pdfDoc = new PDFDocument();
     res.setHeader('Content-Type', 'application/pdf');

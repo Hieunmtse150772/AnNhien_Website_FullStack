@@ -7,8 +7,8 @@ export const cloudinaryResponse = {
   public_id: 'users/vbbon1tejm74rq3bjspj',
 };
 
-export const correctFilePath = `${process.env.PWD}/public/tests/test.jpeg`;
-export const invaildFileType = `${process.env.PWD}/public/tests/test.pdf`;
+export const correctFilePath = `${process.env.PWD || process.cwd()}/public/tests/test.jpeg`;
+export const invaildFileType = `${process.env.PWD || process.cwd()}/public/tests/test.pdf`;
 
 export const validMongooseObjectId = new mongoose.Types.ObjectId().toString();
 

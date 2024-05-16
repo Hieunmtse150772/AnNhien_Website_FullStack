@@ -6,7 +6,7 @@ import { customResponse } from '@src/utils';
 const router = express.Router();
 
 router.get('/', (req: Request, res: Response<ResponseT>) => {
-  const message = 'Welcome to Rest API - 👋🌎🌍🌏 - health check confirm';
+  const message = 'Welcome to Rest API - 👋🌎🌍🌏 - Vuon Chay An Nhien';
   res.send(customResponse({ data: null, success: true, error: false, message, status: 200 }));
 });
 

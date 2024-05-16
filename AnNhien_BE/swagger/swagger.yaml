@@ -24,9 +24,9 @@ servers:
         description: Environment -  Production, Staging, Test or Dev
         default: http://localhost:8000
         enum:
-          - https://saddam-rest-api.herokuapp.com
-          - https://saddam-rest-api.herokuapp.com
-          - https://saddam-rest-api.herokuapp.com
+          - https://annhien-api-a19ffa881cd6.herokuapp.com
+          - https://annhien-api-a19ffa881cd6.herokuapp.com
+          - https://annhien-api-a19ffa881cd6.herokuapp.com
           - http://localhost:8000
 
 paths:
@@ -61,6 +61,484 @@ paths:
   #               '$ref': '#/components/schemas/HealthCheckResponse'
 
   # # Products
+  /vegetarianDishes:
+    get:
+      summary: Returns a list of vegetarian dishes (can search, sort by each filed, filter by each filed)
+      tags:
+        - Vegetarian dish
+      description:
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            example: 10
+          description: The numbers of items to return (the default value is 20)
+        - in: query
+          name: page
+          schema:
+            type: integer
+            # minimum: 1
+            # example: 1
+          description: Pagination page number (the default value is 1)
+        - in: query
+          name: sort
+          schema:
+            type: string
+            example: 'price,-ratings'
+          description: Sort query (the default is sort by lowest price and highest rating
+        - in: query
+          name: category
+          schema:
+            type: string
+            example:
+          description: Filter by Category name (Example - books,toys,jewelery,personal computers)
+        - in: query
+          name: search
+          schema:
+            type: string
+            example:
+          description: search term (Example - nodejs)
+      responses:
+        '200': # status code
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successful Found vegetarian dishes
+                  data:
+                    type: object
+                    properties:
+                      totalDocs:
+                        type: integer
+                        minimum: 0
+                      totalPages:
+                        type: integer
+                      lastPage:
+                        type: integer
+                      count:
+                        type: integer
+                      currentPage:
+                        type: object
+                        properties:
+                          page:
+                            type: integer
+                            minimum: 1
+                          limit:
+                            type: integer
+                            minimum: 1
+                      nextPage:
+                        type: object
+                        properties:
+                          page:
+                            type: integer
+                            minimum: 1
+                          limit:
+                            type: integer
+                            minimum: 1
+                      vegetarian dishes:
+                        type: array
+                        items:
+                          type: object
+                          '$ref': '#/components/schemas/VegetarianDishResponse'
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+    post:
+      security:
+        - Authorization: []
+      summary: Add a new vegetarian dish
+      tags:
+        - Vegetarian dish
+      consumes:
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              '$ref': '#/components/schemas/VegetarianDishRequest'
+            encoding:
+              vegetarianDishImage:
+                contentType: application/octet-stream
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: Successfully added new vegetarian Dish
+                  data:
+                    type: object
+                    properties:
+                      post:
+                        type: object
+                        '$ref': '#/components/schemas/VegetarianDishResponse'
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+  /vegetarianDishes/top-5-cheap:
+    get:
+      summary: Returns 5 top cheapest and highly rated vegetarian dish
+      tags:
+        - Vegetarian dish
+      description:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successful Found vegetarian dishes
+                  data:
+                    type: object
+                    properties:
+                      totalDocs:
+                        type: integer
+                        minimum: 0
+                      totalPages:
+                        type: integer
+                      lastPage:
+                        type: integer
+                      count:
+                        type: integer
+                      currentPage:
+                        type: object
+                        properties:
+                          page:
+                            type: integer
+                            minimum: 1
+                          limit:
+                            type: integer
+                            minimum: 1
+                      nextPage:
+                        type: object
+                        properties:
+                          page:
+                            type: integer
+                            minimum: 1
+                          limit:
+                            type: integer
+                            minimum: 1
+                      vegetarian dishes:
+                        type: array
+                        items:
+                          type: object
+                          '$ref': '#/components/schemas/VegetarianDishResponse'
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+
+  /vegetarianDishes/{vegetarianDishId}:
+    get:
+      summary: Get vegetarian dish based on request id
+      tags:
+        - Vegetarian dish
+      parameters:
+        - in: path
+          name: vegetarianDishId
+          required: true
+          description: Unique id
+          schema:
+            type: string
+            minimum: 1
+            example: 6398540ee6e5ae8c37c333ac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successfully found vegetarian dish by ID ...
+                  data:
+                    type: object
+                    properties:
+                      vegetarian dish:
+                        type: object
+                        '$ref': '#/components/schemas/VegetarianDishResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+
+  /vegetarianDishes/reviews:
+    put:
+      security:
+        - Authorization: []
+      summary: Add/Update review and comment to vegetarian dish
+      tags:
+        - Vegetarian dish
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vegetarianDishId:
+                  type: string
+                  minimum: 1
+                  example: '63a44be6f4cf592dedf5c70a'
+                comment:
+                  type: string
+                  example: great and modern vegetarian dish
+                rating:
+                  type: number
+                  example: 4.9
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successfully add review to vegetarian dish .....
+                  data:
+                    type: object
+                    properties:
+                      vegetarian dish:
+                        type: object
+                        '$ref': '#/components/schemas/VegetarianDishResponse'
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+
+  /vegetarianDishes/reviews/{vegetarianDishId}:
+    get:
+      summary: Get list of reviews and comments for single vegetarian dish
+      tags:
+        - Vegetarian dish
+      parameters:
+        - in: path
+          name: vegetarianDishId
+          required: true
+          description: Unique id
+          schema:
+            type: string
+            minimum: 1
+            example: 6398540ee6e5ae8c37c333ac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successfully found reviews for vegetarian dish by ID ...
+                  data:
+                    type: object
+                    properties:
+                      reviews:
+                        type: array
+                        items:
+                          type: object
+                          '$ref': '#/components/schemas/VegetarianDishResponse'
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
+
+    delete:
+      security:
+        - Authorization: []
+      summary: Delete review and comment based on request id
+      tags:
+        - Vegetarian dish
+      parameters:
+        - in: path
+          name: vegetarianDishId
+          required: true
+          description: Unique id
+          schema:
+            type: string
+            minimum: 1
+            example: 6398540ee6e5ae8c37c333ac
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    description:
+                  error:
+                    type: boolean
+                    example: false
+                  status:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Successfully deleted review from vegetarian dish by ID ...
+                  data:
+                    type: object
+                    properties:
+                      vegetarian dish:
+                        type: object
+                        '$ref': '#/components/schemas/VegetarianDishResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/BadRequestResponse'
+
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/ServerErrorResponse'
 
   /products:
     get:
@@ -5581,6 +6059,146 @@ components:
                   type: 'string'
                 emailVerificationLinkToken:
                   type: string
+
+    # VegetarianDishRequest:
+    #   type: object
+    #   description: Model containing vegetarian dish request info
+    #   properties:
+    #     dishName:
+    #       type: string
+    #       example: Lẩu chay
+    #     dishType:
+    #       type: string
+    #       example: Lẩu
+    #     recipe:
+    #       type: object
+    #       properties:
+    #         timePrepare: 
+    #           type: string
+    #           example: 30 phút
+    #         timeCooking: 
+    #           type: string
+    #           example: 1 tiếng
+    #         description: 
+    #           type: string
+    #           example: Nấu lẩu chay
+    #     title:
+    #       type: string
+    #       example: công thức nấu lẩu chay
+    #     tutorialVideo:
+    #       type: string
+    #       example: link video nấu lẩu chay
+    #     vegetarianDishImages:
+    #       type: array
+    #       items:
+    #         type: string
+    #         format: binary
+    #         description: Image type /png/jpg/jpeg/webp
+    #     chefName:
+    #       type: string
+    #       example: Trung Hiếu
+    #     category:
+    #       type: string
+    #       example: Lẩu
+    VegetarianDishRequest:
+      type: object
+      required:
+        - vegetarianDishImages
+        - dishName
+        - dishType
+        - title
+      properties:
+        vegetarianDishImages:
+          type: array
+          items:
+            type: string
+            format: binary
+            description: Image type /png/jpg/jpeg/webp
+        dishName:
+          type: string
+          minLength: 3
+          maxLength: 100
+          example: Veggie Delight
+        dishType:
+          type: string
+          minLength: 3
+          maxLength: 100
+          example: Main Course
+        timePrepare:
+          type: string
+          example: 20 minutes
+        timeCooking:
+          type: string
+          example: 30 minutes
+        description:
+          type: string
+          example: A delicious vegetarian dish recipe.
+        title:
+          type: string
+          example: Veggie Delight Recipe
+        content:
+          type: string
+          example: This is the content of the vegetarian dish.
+        recipeFile:
+          type: string
+          example: recipe.pdf
+        tutorialVideo:
+          type: string
+          example: https://www.youtube.com/watch?v=example
+        chefName:
+          type: string
+          example: Chef John Doe
+        _id:
+          type: string
+          example: abc123
+        createdAt:
+          type: string
+          example: 2024-05-12T12:00:00Z
+        updatedAt:
+          type: string
+          example: 2024-05-12T12:30:00Z
+        category:
+          type: string
+          example: Vegetarian
+        cloudinary_id:
+          type: string
+          example: cloudinary123
+
+    VegetarianDishResponse:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: string
+        brand:
+          type: string
+        category:
+          type: string
+        productImage:
+          type: string
+        stock:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        ratings:
+          type: number
+        numberOfReviews:
+          type: number
+        reviews:
+          type: array
+          items:
+            type: object
+            '$ref': '#/components/schemas/ReviewsResponse'
+        request:
+          type: object
+          '$ref': '#/components/schemas/ResponseAdditionalInfo'
 
     ProductRequest:
       type: object

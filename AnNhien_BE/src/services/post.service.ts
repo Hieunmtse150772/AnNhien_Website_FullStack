@@ -25,7 +25,7 @@ export const createPostService = async (req: AuthenticatedRequestBody<IPost>, re
   try {
     let cloudinaryResult;
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'posts',
       });
@@ -74,7 +74,7 @@ export const createPostService = async (req: AuthenticatedRequestBody<IPost>, re
   } catch (error) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);
@@ -239,7 +239,7 @@ export const updatePostService = async (req: AuthenticatedRequestBody<IPost>, re
 
     let cloudinaryResult;
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
 
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'posts',
@@ -310,7 +310,7 @@ export const deletePostService = async (req: AuthenticatedRequestBody<IUser>, re
 
     // const fullImage = post.postImage || '';
     // const imagePath = fullImage.split('/').pop() || '';
-    // const folderFullPath = `${process.env.PWD}/public/uploads/posts/${imagePath}`;
+    // const folderFullPath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${imagePath}`;
 
     // deleteFile(folderFullPath);
 

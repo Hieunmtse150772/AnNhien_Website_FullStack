@@ -177,7 +177,7 @@ export const signupService = async (req: Request, res: Response<ResponseT<null>>
   } catch (error: any) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);
@@ -469,7 +469,7 @@ export const updateAuthService = async (req: AuthenticatedRequestBody<IUser>, re
       const existingUser = await User.findOne({ email: new RegExp(`^${email}$`, 'i') });
       if (existingUser && !existingUser._id.equals(user._id)) {
         if (req.file?.filename) {
-          const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file.filename}`;
+          const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file.filename}`;
           deleteFile(localFilePath);
         }
         return next(createHttpError(422, `E-Mail address ${email} is already exists, please pick a different one.`));
@@ -485,7 +485,7 @@ export const updateAuthService = async (req: AuthenticatedRequestBody<IUser>, re
     if (req.file?.filename) {
       // localFilePath: path of image which was just
       // uploaded to "public/uploads/users" folder
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
 
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'users',
@@ -543,7 +543,7 @@ export const updateAuthService = async (req: AuthenticatedRequestBody<IUser>, re
   } catch (error) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);

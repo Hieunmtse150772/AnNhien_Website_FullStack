@@ -1,24 +1,30 @@
 import mongoose from 'mongoose';
+import { IUser } from './User';
 
-export interface IRecipe extends mongoose.Document {
-  timePrepare: string;
-  timeCooking: string;
-  description: string;
-}
 
 export interface IVegetarianDish extends mongoose.Document {
   dishName: string;
   dishType: string;
-  recipe: IRecipe;
+  timePrepare: string;
+  timeCooking: string;
+  description: string;  
   title: string;
   content: string;
   recipeFile: string;
   tutorialVideo: string;
-  vegetarianDishImage: string;
+  vegetarianDishImages: {
+    url: string;
+    cloudinary_id: string;
+  }[];
   chefName: string;
   _id: string;
   createdAt?: string;
   updatedAt?: string;
   category?: string;
-  cloudinary_id?: string;
+}
+
+export interface ReviewVegetarianDishT extends IUser {
+  productId: string;
+  rating: number;
+  comment: string;
 }

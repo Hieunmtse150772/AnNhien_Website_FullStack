@@ -12,12 +12,17 @@ type FileNameCallback = (error: Error | null, filename: string) => void;
 // Configuring and validating the upload
 export const fileStorage = multer.diskStorage({
   destination: (request: Request, file: Express.Multer.File, callback: DestinationCallback): void => {
+    const mappings = [
+      { keywords: ['products'], result: 'products' },
+      { keywords: ['posts', 'feed'], result: 'posts' },
+      { keywords: ['vegetarianDishes'], result: 'vegetarianDishes' },
+    ];
+    console.log("request.originalUrl", request.originalUrl)
     // eslint-disable-next-line no-nested-ternary
-    const fileName = request.originalUrl.includes('products')
-      ? 'products'
-      : request.originalUrl.includes('posts') || request.originalUrl.includes('feed')
-      ? 'posts'
-      : 'users';
+    const fileName = mappings.find(mapping =>
+      mapping.keywords.some(keyword => request.originalUrl.includes(keyword))
+    )?.result || 'users';
+    console.log('fileName: ', fileName)
     callback(null, `public/uploads/${fileName}`);
   },
 

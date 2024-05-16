@@ -1,16 +1,17 @@
+import { IBuddhistBook } from '@src/interfaces/BuddhistBook';
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface IBuddhistBook extends Document {
-  bookType: string;
-  bookName: string;
-  author: string;
-}
 
 const BuddhistBookSchema = new Schema<IBuddhistBook>({
   _id: Schema.Types.ObjectId,
-  bookType: { type: String, required: true },
-  bookName: { type: String, required: true },
-  author: { type: String, required: true },
+  bookType: { required: true, type: String },
+  bookName: { required: true, type: String },
+  author: { required: true, type: String },
+  file: { required: true, type: String },
+  bookCoverImage: { required: true, type: String },
+  createdAt: { required: false, type: String },
+  updatedAt: { required: false, type: String },
+  cloudinary_id: { required: false, type: String },
 });
 
 const BuddhistBookModel = mongoose.model<IBuddhistBook>('BuddhistBook', BuddhistBookSchema);

@@ -6,3 +6,6 @@ export * from './Post';
 export * from './Product';
 export * from './Token';
 export * from './User';
+export * from './VegetarianDish';
+export * from './BuddhistBook';
+

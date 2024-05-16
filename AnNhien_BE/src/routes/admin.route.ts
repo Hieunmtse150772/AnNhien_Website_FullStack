@@ -89,6 +89,15 @@ router.post(
   addProductValidation,
   adminAddProductController
 );
+router.post(
+  '/vegetarianDishes/add',
+  isAuth,
+  customRoles(environmentConfig.ADMIN_EMAILS, authorizationRoles.admin),
+  uploadImage.array('productImages'),
+  addProductValidation,
+  adminAddProductController
+);
+
 
 router.put(
   '/products/update/:productId',

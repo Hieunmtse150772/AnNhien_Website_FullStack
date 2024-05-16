@@ -5,4 +5,5 @@ export * from './order.service';
 export * from './payment.service';
 export * from './post.service';
 export * from './product.service';
+export * from './vegetarianDish.service';
 export * from './user.service';

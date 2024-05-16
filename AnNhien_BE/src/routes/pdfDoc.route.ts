@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const pdfName = `sample.pdf`;
-    const folderFullPath = path.resolve(process.cwd(), `${process.env.PWD}/public/pdf/${pdfName}`);
+    const folderFullPath = path.resolve(process.cwd(), `${process.env.PWD || process.cwd()}/public/pdf/${pdfName}`);
 
     fs.stat(folderFullPath, async function (err, stats) {
       if (process?.env?.NODE_ENV && process.env.NODE_ENV === 'development') {

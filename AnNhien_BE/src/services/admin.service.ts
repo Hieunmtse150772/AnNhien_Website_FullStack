@@ -46,7 +46,7 @@ export const adminAddUserService = async (req: Request, res: Response<ResponseT<
     const isEmailExit = await User.findOne({ email: new RegExp(`^${email}$`, 'i') });
     if (isEmailExit) {
       if (req.file?.filename) {
-        const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file.filename}`;
+        const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file.filename}`;
         deleteFile(localFilePath);
       }
       return next(createHttpError(422, `E-Mail address ${email} is already exists, please pick a different one.`));
@@ -56,7 +56,7 @@ export const adminAddUserService = async (req: Request, res: Response<ResponseT<
     if (req.file?.filename) {
       // localFilePath: path of image which was just
       // uploaded to "public/uploads/users" folder
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
 
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'users',
@@ -144,7 +144,7 @@ export const adminAddUserService = async (req: Request, res: Response<ResponseT<
   } catch (error) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);
@@ -191,7 +191,7 @@ export const adminUpdateAuthService = async (
       const existingUser = await User.findOne({ email: new RegExp(`^${email}$`, 'i') });
       if (existingUser && !existingUser._id.equals(user._id)) {
         if (req.file?.filename) {
-          const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file.filename}`;
+          const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file.filename}`;
           deleteFile(localFilePath);
         }
         return next(createHttpError(422, `E-Mail address ${email} is already exists, please pick a different one.`));
@@ -207,7 +207,7 @@ export const adminUpdateAuthService = async (
     if (req.file?.filename) {
       // localFilePath: path of image which was just
       // uploaded to "public/uploads/users" folder
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
 
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'users',
@@ -267,7 +267,7 @@ export const adminUpdateAuthService = async (
   } catch (error) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/users/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/users/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);
@@ -362,8 +362,6 @@ export const adminAddProductService = async (
 ) => {
   const { name, price, description, brand, category, stock } = req.body;
 
-  // console.log(req.file, req.files);
-
   const imageUrlList: any[] = [];
 
   const userId = req?.user?._id || '';
@@ -376,13 +374,13 @@ export const adminAddProductService = async (
 
         // localFilePath: path of image which was just
         // uploaded to "public/uploads/products" folder
-        const localFilePath = `${process.env.PWD}/public/uploads/products/${element}`;
-
+        const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/products/${element}`;
+        console.log('localFilePath: ', localFilePath)
         // eslint-disable-next-line no-await-in-loop
         const result = await cloudinary.uploader.upload(localFilePath, {
           folder: 'products',
         });
-
+        console.log('result: ', result)
         imageUrlList.push({
           url: result?.secure_url,
           cloudinary_id: result?.public_id,
@@ -406,8 +404,10 @@ export const adminAddProductService = async (
       productImages: imageUrlList,
       user: userId,
     });
+    console.log('productData:   ', productData)
 
     const createdProduct = await Product.create(productData);
+    console.log('createdProduct:   ', createdProduct)
 
     const data = {
       product: {
@@ -441,7 +441,7 @@ export const adminAddProductService = async (
         },
       },
     };
-
+    console.log('data:   ', data)
     return res.status(201).send(
       customResponse<typeof data>({
         success: true,
@@ -456,7 +456,7 @@ export const adminAddProductService = async (
       for (let index = 0; index < Number(req?.files?.length); index += 1) {
         // @ts-ignore
         const element = req.files && req.files[index].filename;
-        const localFilePath = `${process.env.PWD}/public/uploads/products/${element}`;
+        const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/products/${element}`;
         // eslint-disable-next-line no-await-in-loop
         await deleteFile(localFilePath);
       }
@@ -573,7 +573,7 @@ export const adminUpdateProductService = async (
 
         // localFilePath: path of image which was just
         // uploaded to "public/uploads/products" folder
-        const localFilePath = `${process.env.PWD}/public/uploads/products/${element}`;
+        const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/products/${element}`;
 
         // eslint-disable-next-line no-await-in-loop
         const result = await cloudinary.uploader.upload(localFilePath, {
@@ -642,7 +642,7 @@ export const adminUpdateProductService = async (
       for (let index = 0; index < Number(req?.files?.length); index += 1) {
         // @ts-ignore
         const element = req.files && req.files[index].filename;
-        const localFilePath = `${process.env.PWD}/public/uploads/products/${element}`;
+        const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/products/${element}`;
         // eslint-disable-next-line no-await-in-loop
         await deleteFile(localFilePath);
       }
@@ -677,7 +677,7 @@ export const adminDeleteProductService = async (
     // Delete the product image
     // const fullImage = product.productImage || '';
     // const imagePath = fullImage.split('/').pop() || '';
-    // const folderFullPath = `${process.env.PWD}/public/uploads/products/${imagePath}`;
+    // const folderFullPath = `${process.env.PWD || process.cwd()}/public/uploads/products/${imagePath}`;
 
     // deleteFile(folderFullPath);
 
@@ -1109,7 +1109,7 @@ export const adminCreatePostService = async (
   try {
     let cloudinaryResult;
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'posts',
       });
@@ -1154,7 +1154,7 @@ export const adminCreatePostService = async (
   } catch (error) {
     // Remove file from local uploads folder
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
       deleteFile(localFilePath);
     }
     return next(InternalServerError);
@@ -1177,7 +1177,7 @@ export const adminDeletePostService = async (
 
     // const fullImage = post.postImage || '';
     // const imagePath = fullImage.split('/').pop() || '';
-    // const folderFullPath = `${process.env.PWD}/public/uploads/posts/${imagePath}`;
+    // const folderFullPath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${imagePath}`;
 
     // deleteFile(folderFullPath);
 
@@ -1300,7 +1300,7 @@ export const adminUpdatePostService = async (
 
     let cloudinaryResult;
     if (req.file?.filename) {
-      const localFilePath = `${process.env.PWD}/public/uploads/posts/${req.file?.filename}`;
+      const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/posts/${req.file?.filename}`;
 
       cloudinaryResult = await cloudinary.uploader.upload(localFilePath, {
         folder: 'posts',

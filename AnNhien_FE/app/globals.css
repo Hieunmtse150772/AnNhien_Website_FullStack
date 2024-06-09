@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
@@ -12,27 +11,27 @@
 }
 
 html {
-  --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
-  }
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .logo {
   font-size: 30px;
   color: rgb(255, 255, 255);
-    font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
-.navbar{
+.navbar {
   position: absolute;
   z-index: 30;
   width: 100%;
 }
-html:not([data-scroll="0"]) .navbar{
+html:not([data-scroll="0"]) .navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -43,33 +42,33 @@ html:not([data-scroll="0"]) .navbar{
   padding-top: 1px;
   padding-bottom: 1px;
   z-index: 3;
-  .text-menu{
+  .text-menu {
     color: black;
   }
-  .logo{
+  .logo {
     color: black;
   }
-  .toggle_button{
+  .toggle_button {
     color: black;
   }
 }
 /* CSS cho navbar trong chế độ tối */
-.dark-mode-navbar .navbar  {
-    background-color: rgb(91, 91, 91) !important; /* Màu nền đen */
+.dark-mode-navbar .navbar {
+  background-color: rgb(91, 91, 91) !important; /* Màu nền đen */
 }
 
 .dark-mode-navbar .text-menu a {
-    color: #fff; /* Màu chữ trắng cho các liên kết */
+  color: #fff; /* Màu chữ trắng cho các liên kết */
 }
 
 .dark-mode-navbar .logo {
-    color: #fff !important; /* Màu chữ trắng cho logo */
+  color: #fff !important; /* Màu chữ trắng cho logo */
 }
 
 .dark-mode-navbar .toggle_button {
-    color: #fff; /* Màu chữ trắng cho nút chuyển đổi chế độ */
+  color: #fff; /* Màu chữ trắng cho nút chuyển đổi chế độ */
 }
-.container{
+.container {
   max-width: 100%;
 }
 .dark {
@@ -81,11 +80,36 @@ html:not([data-scroll="0"]) .navbar{
   background-color: white;
 }
 
-.banner{
-  height: 766px; max-height: 766px;
+.banner {
+  height: 700px;
+  max-height: 700px;
   position: relative;
   z-index: 0;
 }
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(54, 170, 129, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 18px;
+  font-size: 30px;
+  color: #fff;
+  display: inline-block;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+
 .back-video {
   position: absolute;
   display: block;
@@ -99,41 +123,42 @@ html:not([data-scroll="0"]) .navbar{
   visibility: inherit;
   object-fit: cover; /* Giữ nguyên tỷ lệ khung hình */
 }
-.introduce{
+.introduce {
   position: relative;
 }
-.image-banner-introduction{
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    visibility: inherit;
-    object-fit: cover; /* Giữ nguyên tỷ lệ khung hình */
+.image-banner-introduction {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  visibility: inherit;
+  object-fit: cover; /* Giữ nguyên tỷ lệ khung hình */
 }
-.banner-introduction{
-  height: 400px; max-height: 400px;
 
+.banner-introduction {
+  height: 400px;
+  max-height: 400px;
 }
-@media (min-aspect-ratio: 16/9){
-  .back-video{
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
     height: 100%;
   }
 }
 .bg-newsletter {
-  background-image: url('/assets/newsletter/hands.svg');
+  background-image: url("/assets/newsletter/hands.svg");
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-
 .boxshadow {
-  box-shadow: 0px 64px 64px -48px #F5EEE8;
+  box-shadow: 0px 64px 64px -48px #f5eee8;
 }
 
 .position-green {
@@ -144,12 +169,15 @@ html:not([data-scroll="0"]) .navbar{
 }
 
 .bannerBorder {
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);  
 }
 
 @media screen and (max-width: 640px) {
-  .bannerBorder {
+  .bannerBorder { 
     border-left: none !important;
+  }
+  .banner .tagline {
+    width: 80%;
   }
 }
 
@@ -161,30 +189,30 @@ html:not([data-scroll="0"]) .navbar{
   box-shadow: 0px 4px 20px rgba(110, 127, 185, 0.1);
 }
 
-.footer-icons{
-  transition: .5s;
+.footer-icons {
+  transition: 0.5s;
 }
-.logo-footer{
+.logo-footer {
   font-size: 30px;
   color: rgb(0, 0, 0);
-    font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
-.footer-icons:hover{
+.footer-icons:hover {
   transform: translateY(-8px);
 }
 
 .space-links {
-  transition: .3s;
+  transition: 0.3s;
 }
 .space-links:hover {
   letter-spacing: 1px;
 }
-ons:hover{
+ons:hover {
   transform: translateY(-8px);
 }
 
 .space-links {
-  transition: .3s;
+  transition: 0.3s;
 }
 .space-links:hover {
   letter-spacing: 1px;

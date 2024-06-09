@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { parseISO, format } from "date-fns";
+import { Button } from "@mui/material";
 
 export default function PostList({
 }) {
@@ -126,7 +127,7 @@ export default function PostList({
                     </div >
                 ))}
             </div>
-            <a className="mt-5 flex justify-center right-0 float-right" href="">{"-->"} xem thêm</a>
+            <Button className="mt-5 flex justify-center right-0 float-right text-black mb-10" href="">Xem thêm</Button>
 
         </>
     );

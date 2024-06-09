@@ -69,21 +69,17 @@ export const addVegetarianDishService = async (
       for (let index = 0; index < Number(req?.files?.length); index += 1) {
         // @ts-ignore
         const element = req.files && req.files[index].filename;
-        console.log("element: ", element)
 
         // localFilePath: path of image which was just
         // uploaded to "public/uploads/products" folder
         const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/vegetarianDishes/${element}`;
-        console.log("localFilePath: ", localFilePath)
         // eslint-disable-next-line no-await-in-loop
         const result = await cloudinary.uploader.upload(localFilePath, {
           folder: 'vegetarianDishes',
-        }).catch((error)=>{
-          console.log('error: ', error)
-        });
-        console.log('result: ', result)
+        })
         
         imageUrlList.push({
+          
           url: result?.secure_url,
           cloudinary_id: result?.public_id,
         });
@@ -131,7 +127,7 @@ export const addVegetarianDishService = async (
         },
         request: {
           type: 'Get',
-          description: 'Get  all products',
+          description: 'Get  all vegetarianDishes',
           url: `${process.env.API_URL}/api/${process.env.API_VERSION}/vegetarianDish`,
         },
       }
@@ -141,7 +137,7 @@ export const addVegetarianDishService = async (
       customResponse<typeof data>({
         success: true,
         error: false,
-        message: 'Successfully created new product',
+        message: 'Successfully created new vegetarian dish',
         status: 201,
         data,
       })

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
       images: {
+        domains: ['res.cloudinary.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,6 +10,9 @@ const nextConfig = {
         pathname: '/account123/**',
       },
     ],
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
 }
 

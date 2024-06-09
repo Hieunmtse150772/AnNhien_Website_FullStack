@@ -6148,21 +6148,9 @@ components:
         chefName:
           type: string
           example: Chef John Doe
-        _id:
-          type: string
-          example: abc123
-        createdAt:
-          type: string
-          example: 2024-05-12T12:00:00Z
-        updatedAt:
-          type: string
-          example: 2024-05-12T12:30:00Z
         category:
           type: string
           example: Vegetarian
-        cloudinary_id:
-          type: string
-          example: cloudinary123
 
     VegetarianDishResponse:
       type: object

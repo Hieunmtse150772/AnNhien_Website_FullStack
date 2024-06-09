@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { parseISO, format } from "date-fns";
-
+import { Button } from "@mui/material";
+import LogoShopee from '../../../public/assets/logo/shopee-logo3.png';
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
 export default function Store({
 }) {
     const news = [
         {
-            name: '2foods-Gâteau Chocolate, 16oz',
+            name: 'Sườn Non Chay, sườn chay Khô Ngon Loại 1 Làng Me, chế biến món chay ngon, không chất bảo, không biến đổi gen',
             src: '/assets/food/8TrackFoods-OrganicWhiteCannelliniBeans_15oz_200x200.avif'
         },
         {
@@ -22,7 +24,7 @@ export default function Store({
             src: '/assets/food/Abbot_sButcher-Plant-BasedMeats_10ozGroundBeef_200x200.avif'
         },
         {
-            name: 'Anima Mundi - Blue Lotus Tea: Flower of Intuition, 1oz',
+            name: 'Sườn non chay xá (gói 1kg)',
             src: '/assets/food/AncientHarvest-TraditionalQuinoa_27oz_200x200.avif'
         },
         {
@@ -33,18 +35,38 @@ export default function Store({
             name: 'Dưa leo',
             src: '/assets/food/AncientHarvest-TraditionalQuinoa_27oz_200x200.avif'
         },
+        {
+            name: 'Dưa leo',
+            src: '/assets/food/AncientHarvest-TraditionalQuinoa_27oz_200x200.avif'
+        },
+        {
+            name: 'Dưa leo',
+            src: '/assets/food/AncientHarvest-TraditionalQuinoa_27oz_200x200.avif'
+        },
+        {
+            name: 'Dưa leo',
+            src: '/assets/food/AncientHarvest-TraditionalQuinoa_27oz_200x200.avif'
+        },
     ]
     return (
         <>
-            <div className="m-10 grid gap-5 grid-cols-2 md:grid-cols-3 lg:gap-5 xl:grid-cols-5 lg:grid-cols-6">
+            <div className="m-10 grid gap-5 grid-cols-1 md:grid-cols-3 lg:gap-4 xl:grid-cols-5 lg:grid-cols-5">
                 {news.map((item, index) => (
-                    <div key={index}
-                        className="overflow-hidden bg-gray-100 transition-all hover:scale-105 group cursor-pointer gap-10 md:grid-cols-2 mt-10 rounded-xl shadow-md hover:shadow-black w-full h-full">
+                         <Link
+                         key={index}
+                                className="overflow-hidden bg-gray-100 transition-all hover:scale-105 group cursor-pointer gap-10 md:grid-cols-2 mt-10 rounded-xl shadow-md hover:shadow-black w-full h-full md:max-h-96"
+                                href="">
                         <div
                             className="dark:bg-gray-800">
-                            <Link
-                                className="relative block   aspect-video"
-                                href="">
+                          
+                                     <Image
+                                    src={LogoShopee}
+                                    alt={"Thumbnail"}
+                                    priority={true}
+                                    className="object-cover transition-all bg-transparent relative left-4"
+                                    width={100}
+                                    height={100}
+                                />
                                 <Image
                                     src={item.src}
                                     alt={"Thumbnail"}
@@ -53,34 +75,38 @@ export default function Store({
                                     width={500}
                                     height={500}
                                 />
-                            </Link>
                         </div>
-
-                        <div className="flex items-center w-full p-2  justify-center">
-                            <div>
-                                <div className="flex gap-3 ">
-                                    <Link
-                                        href={`/category/`}
-                                    >
+                       
+                        <div className="flex-wrap w-full content-center mx-2">
+                                <div className="name h-14 max-h-14 mx-2 mt-5 mb-2">
                                         <span
-                                            className=" content-center"
+                                            className="content-center text-sm w-full"
                                         >
-                                            {item.name}
+                                            {item.name.split('',40)}{item.name.length > 40 && '...' }
                                         </span>
-                                    </Link>
                                 </div>
-                                <div className="hidden">
+                                {/* <div className="hidden">
                                     <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
                                         <Link
                                             href={"/post/"}>
                                         </Link>
                                     </p>
+                                </div> */}
+                                <div className="price mx-2 text-red relative bottom-0 mt-2" >
+                                    <span>{Intl.NumberFormat('vi-VN', {
+                                         style: 'currency',
+                                         currency: 'VND',
+                                         minimumFractionDigits: 0,
+                                    }).format(70000)}</span>
                                 </div>
-                            </div>
+                                <div className="text-lightgrey">
+                                    <span className="text-sm"><FmdGoodIcon/> Hồ Chí Minh</span>
+                                </div>
                         </div>
-                    </div >
+                        </Link>
                 ))}
             </div>
+            <Button className="mt-5 flex justify-center right-0 float-right text-black mb-10" href="">Xem thêm</Button>
 
         </>
     );

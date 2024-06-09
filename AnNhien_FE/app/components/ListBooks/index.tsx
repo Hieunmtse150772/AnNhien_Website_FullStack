@@ -1,6 +1,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { Button } from "@mui/material"
 
 export function ListBooks() {
   const news = [
@@ -35,7 +36,7 @@ export function ListBooks() {
           ))}
         </div>
       </div>
-      <a className="mt-5 flex justify-center right-0 float-right" href="">{"-->"} xem thêm</a>
+      <Button className="mt-5 flex justify-center right-0 float-right text-black" href="">Xem thêm</Button>
     </div>
 
   )

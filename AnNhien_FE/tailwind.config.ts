@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      // backgroundImage:{
+      //   'introduction-image': "url('/assets/dishvegetable/chay-thuan-chay.jpg')",
+      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,6 +77,7 @@ const config = {
       },
     },
   },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 

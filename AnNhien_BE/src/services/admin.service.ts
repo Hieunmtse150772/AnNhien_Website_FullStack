@@ -375,12 +375,10 @@ export const adminAddProductService = async (
         // localFilePath: path of image which was just
         // uploaded to "public/uploads/products" folder
         const localFilePath = `${process.env.PWD || process.cwd()}/public/uploads/products/${element}`;
-        console.log('localFilePath: ', localFilePath)
         // eslint-disable-next-line no-await-in-loop
         const result = await cloudinary.uploader.upload(localFilePath, {
           folder: 'products',
         });
-        console.log('result: ', result)
         imageUrlList.push({
           url: result?.secure_url,
           cloudinary_id: result?.public_id,

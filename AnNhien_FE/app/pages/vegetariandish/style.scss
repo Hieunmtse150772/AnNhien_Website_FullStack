@@ -1,0 +1,73 @@
+.vegetarian-dish .container{
+    margin: auto;
+    position: relative;
+    max-width: 1300px;
+}
+.vegetarian-dish .tabs .tab{
+    border: 1px solid rgb(95, 95, 95);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(95, 95, 95);
+    height: 40px;
+    align-content: center;
+}
+
+.vegetarian-dish .banner-vegetarian-dish{
+    height: 50vh;
+    max-height: 38vh;
+    position: relative;
+    z-index: 0;
+}
+
+.vegetarian-dish .banner-vegetarian-dish .image-banner-vegetarian-dish {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    visibility: inherit;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(100deg, rgb(0, 0, 0), rgba(66, 66, 66, 0)),
+     url(/assets/banner/vegetarian-recipe-6.png);
+    object-fit: cover; /* Giữ nguyên tỷ lệ khung hình */
+    background-size: 100%;
+    background-position: center;
+  }
+.vegetarian-dish .tabs .tab a{
+   padding: 10px 10px 10px 10px;
+    
+}
+.vegetarian-dish .tabs .tab-active{
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}
+// .vegetarian-dish .card-vegetarian {
+//     max-width: 350px;
+//     width: 350px;
+// }
+.vegetarian-dish .image:hover {
+
+    .icon-heart-container{
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 765px){
+    .vegetarian-dish .container{
+        margin: auto;
+        padding: 30px 30px 30px 30px;
+        position: relative;
+    }
+    .vegetarian-dish{
+       padding: 0;
+       margin: 0;
+     }
+    .vegetarian-dish .tabs .tab{
+        font-size: 10px;
+        height: 30px;
+     }
+}

@@ -24,10 +24,10 @@ const Navbar = () => {
 
     const navigation: NavigationItem[] = [
         { name: 'Trang chủ', href: '/', current: router === '/' },
-        { name: 'Giới thiệu', href: '/pages/introductionpage', current: router === '/pages/introductionpage'},
+        { name: 'Giới thiệu', href: '/pages/introduction', current: router === '/pages/introduction'},
         { name: 'Rộng mở tâm hồn', href: 'https://www.rongmotamhon.net/', current: false },
-        { name: 'Món chay An Nhiên', href: '/p', current: false },
-        { name: 'Nhà hàng chay', href: '/pages/restaurantpage', current: router === '/pages/restaurantpage'  },
+        { name: 'Món chay An Nhiên', href: '/pages/vegetariandish', current: router === '/pages/vegetariandish'},
+        { name: 'Nhà hàng chay', href: '/pages/restaurant', current: router === '/pages/restaurant'  },
         { name: 'Chia sẻ', href: '#join-section', current: false },
     
     ]

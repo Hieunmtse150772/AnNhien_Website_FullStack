@@ -41,7 +41,7 @@ html:not([data-scroll="0"]) .navbar {
   transition: 0.4s linear;
   padding-top: 1px;
   padding-bottom: 1px;
-  z-index: 3;
+  z-index: 20;
   .text-menu {
     color: black;
   }
@@ -49,6 +49,9 @@ html:not([data-scroll="0"]) .navbar {
     color: black;
   }
   .toggle_button {
+    color: black;
+  }
+  .search-button{
     color: black;
   }
 }
@@ -66,8 +69,12 @@ html:not([data-scroll="0"]) .navbar {
 }
 
 .dark-mode-navbar .toggle_button {
-  color: #fff; /* Màu chữ trắng cho nút chuyển đổi chế độ */
+  color: #fff !important; /* Màu chữ trắng cho nút chuyển đổi chế độ */
 }
+.dark-mode-navbar .search-button {
+  color: #fff !important; /* Màu chữ trắng cho nút chuyển đổi chế độ */
+}
+
 .container {
   max-width: 100%;
 }

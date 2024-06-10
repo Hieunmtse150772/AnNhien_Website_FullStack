@@ -7,8 +7,8 @@ import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
 import { ModeToggle } from '../ModeToggle';
 import { usePathname } from "next/navigation";
-
-
+import SearchIcon from '@mui/icons-material/Search';
+import { IconButton } from '@mui/material';
 interface NavigationItem {
     name: string;
     href: string;
@@ -24,26 +24,26 @@ const Navbar = () => {
 
     const navigation: NavigationItem[] = [
         { name: 'Trang chủ', href: '/', current: router === '/' },
-        { name: 'Giới thiệu', href: '/pages/introduction', current: router === '/pages/introduction'},
+        { name: 'Giới thiệu', href: '/pages/introduction', current: router === '/pages/introduction' },
         { name: 'Rộng mở tâm hồn', href: 'https://www.rongmotamhon.net/', current: false },
-        { name: 'Món chay An Nhiên', href: '/pages/vegetariandish', current: router === '/pages/vegetariandish'},
-        { name: 'Nhà hàng chay', href: '/pages/restaurant', current: router === '/pages/restaurant'  },
+        { name: 'Món chay An Nhiên', href: '/pages/vegetariandish', current: router === '/pages/vegetariandish' },
+        { name: 'Nhà hàng chay', href: '/pages/restaurant', current: router === '/pages/restaurant' },
         { name: 'Chia sẻ', href: '#join-section', current: false },
-    
+
     ]
-    
+
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
         <Disclosure as="nav" className="navbar bg-transparent">
             <>
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="relative flex h-20 items-center justify-between">
+                <div className="mx-auto max-w-7xl">
+                    <div className="relative flex h-20 items-center justify-between content-center">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
                             {/* LOGO */}
 
                             <div className="flex flex-shrink-0 items-center">
-                            <h1 className='logo font-medium text-black'>Vườn chay an nhiên</h1>
+                                <h1 className='logo font-medium text-black'>Vườn chay an nhiên</h1>
                             </div>
                             {/* LINKS */}
                             <div className="hidden sm:ml-14 md:block">
@@ -63,9 +63,15 @@ const Navbar = () => {
                                     ))}
                                 </div>
                             </div>
-                            <ModeToggle></ModeToggle>
+                            <div className='hidden self-center text-lg space-x-16 md:block'>
+                                <ModeToggle></ModeToggle>
+                                
+                            </div>
+
+
                         </div>
-                                                
+                        <IconButton className='mr-5'><SearchIcon className='search-button text-2xl text-white'></SearchIcon></IconButton>
+                                    
                         {/* DRAWER FOR MOBILE VIEW */}
 
                         {/* DRAWER ICON */}
@@ -77,7 +83,7 @@ const Navbar = () => {
                         {/* DRAWER LINKS DATA */}
 
                         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-                            <Drawerdata />  
+                            <Drawerdata />
                         </Drawer>
 
                     </div>

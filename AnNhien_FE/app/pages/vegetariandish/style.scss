@@ -2,17 +2,37 @@
     margin: auto;
     position: relative;
     max-width: 1300px;
+    padding: 30px 30px 30px 30px;
 }
 .vegetarian-dish .tabs .tab{
-    border: 1px solid rgb(95, 95, 95);
     border-radius: 10px;
+    border: 1px dashed grey;
+
     background-color: rgb(255, 255, 255);
     color: rgb(95, 95, 95);
     height: 40px;
     align-content: center;
 }
 
-.vegetarian-dish .banner-vegetarian-dish{
+.vegetarian-dish .tabs .tab a{
+    padding: 10px 10px 10px 10px;
+     
+ }
+
+ .vegetarian-dish .tabs .tab:hover {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(108, 108, 108);
+    color: white;
+}
+
+.vegetarian-dish .tabs .tab-active{
+     border-radius: 10px;
+     background-color: red;
+     color: white;
+ }
+
+.vegetarian-dish .banner-vegetarian-dish {
     height: 50vh;
     max-height: 38vh;
     position: relative;
@@ -35,31 +55,30 @@
     background-size: 100%;
     background-position: center;
   }
-.vegetarian-dish .tabs .tab a{
-   padding: 10px 10px 10px 10px;
-    
-}
-.vegetarian-dish .tabs .tab-active{
-    border: 1px solid red;
-    border-radius: 10px;
-    background-color: red;
-    color: white;
-}
+
+
 // .vegetarian-dish .card-vegetarian {
 //     max-width: 350px;
 //     width: 350px;
 // }
 .vegetarian-dish .image:hover {
-
+    
     .icon-heart-container{
         transform: scale(1.2);
     }
 }
-
+.vegetarian-dish .container .filters-action .tabs .tab {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: 40px;
+        padding: 5px;
+}
 @media (max-width: 765px){
     .vegetarian-dish .container{
         margin: auto;
-        padding: 30px 30px 30px 30px;
+        padding: 30px 50px 30px 50px;
         position: relative;
     }
     .vegetarian-dish{

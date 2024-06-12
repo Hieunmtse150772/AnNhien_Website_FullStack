@@ -18,6 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+        <title>Vườn chay an nhiên</title>
+        <meta charSet='utf-8' />
       </head>
       <body>
         <Provider store={store}>

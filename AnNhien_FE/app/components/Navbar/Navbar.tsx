@@ -38,7 +38,7 @@ const Navbar = () => {
         <Disclosure as="nav" className="navbar bg-transparent">
             <>
                 <div className="mx-auto max-w-7xl">
-                    <div className="relative flex h-20 items-center justify-between content-center">
+                    <div className="relative flex h-20 items-center justify-between content-center mx-5">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
                             {/* LOGO */}
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                                 <h1 className='logo font-medium text-black'>Vườn chay an nhiên</h1>
                             </div>
                             {/* LINKS */}
-                            <div className="hidden sm:ml-14 md:block">
+                            <div className="hidden sm:ml-14 xl:block">
                                 <div className="text-menu flex space-x-4 text-white font-bold px-10 ">
                                     {navigation.map((item) => (
                                         <Link
@@ -63,21 +63,21 @@ const Navbar = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className='hidden self-center text-lg space-x-16 md:block'>
+                            <div className='hidden self-center text-lg space-x-16 xl:block'>
                                 <ModeToggle></ModeToggle>
                                 
                             </div>
 
 
                         </div>
-                        <IconButton className='mr-5'><SearchIcon className='search-button text-2xl text-white'></SearchIcon></IconButton>
+                        <IconButton className='mr-5'><SearchIcon className='search-button text-2xl text-white hidden xl:block'></SearchIcon></IconButton>
                                     
                         {/* DRAWER FOR MOBILE VIEW */}
 
                         {/* DRAWER ICON */}
 
-                        <div className='block md:hidden'>
-                            <Bars3Icon className="block h-6 w-6" aria-hidden="true" onClick={() => setIsOpen(true)} />
+                        <div className=' block xl:hidden'>
+                            <Bars3Icon className="bars_3_icon block h-6 w-6 text-white dark:text-white" aria-hidden="true" onClick={() => setIsOpen(true)} />
                         </div>
 
                         {/* DRAWER LINKS DATA */}

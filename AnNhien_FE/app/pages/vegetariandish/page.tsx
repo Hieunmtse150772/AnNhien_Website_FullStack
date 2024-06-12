@@ -91,7 +91,7 @@ const VegetarianDish = () => {
                     absolute left-3 top-3 z-10'
                   >
                     <Image
-                      src="/assets/logo/logo.svg"
+                      src="/assets/logo/Logo.svg"
                       alt="intuition"
                       className="transition-all rounded-xl"
                       width={500}
@@ -103,10 +103,10 @@ const VegetarianDish = () => {
                     src={items.vegetarianDishImages[0].url}
                     alt={"Thumbnail"}
                     priority={true}
-                    className="image object-cover transition-all max-w-full max-h-48 rounded-xl hover:scale-105 z-1 relative"
+                    className="image object-cover transition-all max-w-full max-h-56 rounded-xl hover:scale-105 z-1 relative"
                     width={500}
                     height={500}
-                    style={{ display: 'block', height: '350px', width: '100%' }}
+                    style={{ display: 'block', height: '500px', width: '100%' }}
                   />
                 </Link>
 
@@ -131,7 +131,7 @@ const VegetarianDish = () => {
                     </span>
                   </div>
                   <div>
-                    <Button className='mt-5 text-white bg-green shadow-sm hover:shadow-lg hover:bg-orange'>Xem chi tiết {'>'}</Button>
+                    <Button className='mt-5 text-white bg-lightgrey shadow-sm hover:shadow-lg hover:bg-orange'>Xem chi tiết {'>'}</Button>
                   </div>
                 </div>
               </div>

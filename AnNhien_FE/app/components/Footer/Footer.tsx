@@ -29,7 +29,7 @@ const footer = () => {
             <div className="mt-5 grid grid-cols-1 lg:grid-cols-12">
                 <div className='col-span-5'>
                     <div className="flex space-x-5 self-center justify-center">
-                        <Image width={150} height={150} src="/assets/logo/logo.svg" alt="intuition"></Image>
+                        <Image width={150} height={150} src="/assets/logo/Logo.svg" alt="intuition"></Image>
                         <div className="self-center">
                             <h1 className='logo-footer font-medium dark:text-white'>Vườn chay an nhiên</h1>
                             <ul>

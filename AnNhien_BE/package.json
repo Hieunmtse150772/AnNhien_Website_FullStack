@@ -21,7 +21,9 @@
     "postinstall": "tsc",
     "start-test": "ts-node src/server.ts",
     "dev-test": "nodemon src/server.ts",
-    "build-test": "tsc"
+    "build-test": "tsc",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "keywords": [],
   "author": "Hieunmt",
@@ -74,10 +76,12 @@
     "typescript": "^5.4.2",
     "uuid": "^9.0.1",
     "winston": "^3.13.0",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@types/node": "^20.11.28",
     "nodemon": "^3.1.0"
-  }
+  },
+  "snyk": true
 }
